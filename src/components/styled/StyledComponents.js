@@ -74,3 +74,11 @@ export const Button = styled.button`
     border: 1.5px solid #da0037;
   }
 `;
+
+export const ErrorMessage = styled.p`
+  color: #da0037;
+  margin: 0;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-weight: 300
+`;

@@ -11,12 +11,12 @@ function Navigation(props) {
           Home
         </StyledNavLink>
 
-        <StyledNavLink to={'/login'} exact>
-          Login
-        </StyledNavLink>
-
         <StyledNavLink to={'/register'} exact>
           Register
+        </StyledNavLink>
+
+        <StyledNavLink to={'/login'} exact>
+          Login
         </StyledNavLink>
       </Nav>
     </Header>

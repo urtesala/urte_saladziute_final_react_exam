@@ -3,8 +3,8 @@ import './App.css';
 import Navigation from './components/Layout/Navigation';
 import { Wraper } from './components/styled/StyledComponents';
 import HomePage from './pages/Home/HomePage';
-import LoginPage from './pages/Login/LoginPage';
-import RegisterPage from './pages/RegisterPage';
+import LoginPage from './pages/Login-Register/LoginPage';
+import RegisterPage from './pages/Login-Register/RegisterPage';
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
         </Route>
 
         <Route path={'/register'}>
-          <RegisterPage />
+          <RegisterPage/>
         </Route>
 
         <Route path={'/home'} exact>
