@@ -49,15 +49,17 @@ export const Form = styled.form`
     }
   }
 
-  input {
+  input,
+  textarea {
     font-size: 16px;
     font-family: 'Yanone Kaffeesatz', sans-serif;
     padding: 0.3em 0.8em;
     margin: 0.4em;
     border: 1.5px solid #171717;
     display: block;
-    max-width: 300px;
+    width: 180px;
     color: #da0037;
+    resize: vertical;
   }
 `;
 
@@ -80,5 +82,15 @@ export const ErrorMessage = styled.p`
   margin: 0;
   letter-spacing: 3px;
   text-transform: uppercase;
-  font-weight: 300
+  font-weight: 300;
+`;
+
+export const Section = styled.section`
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 3rem;
+  width: auto;
+  height: 350px;
 `;

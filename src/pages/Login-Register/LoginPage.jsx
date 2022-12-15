@@ -1,6 +1,6 @@
 import LoginForm from '../../components/forms/LoginForm';
-import { Card } from '../../components/styled/StyledComponents';
-import { Section } from './styledLogin';
+import { Card, Section } from '../../components/styled/StyledComponents';
+
 
 function LoginPage(props) {
   return (

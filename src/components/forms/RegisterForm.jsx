@@ -1,11 +1,9 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { useHistory } from 'react-router-dom';
 import { Button, Form } from '../styled/StyledComponents';
 import InputError from './InputError';
 
 function RegisterForm(props) {
-  const history = useHistory();
   const formik = useFormik({
     initialValues: {
       email: '',
