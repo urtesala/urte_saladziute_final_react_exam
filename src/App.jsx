@@ -3,7 +3,7 @@ import './App.css';
 import Navigation from './components/Layout/Navigation';
 import { Wraper } from './components/styled/StyledComponents';
 import HomePage from './pages/Home/HomePage';
-import LoginPage from './pages/LoginPage';
+import LoginPage from './pages/Login/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 
 function App() {

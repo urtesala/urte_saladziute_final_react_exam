@@ -1,22 +1,29 @@
+
+import { Button, Card, Form } from "../components/styled/StyledComponents";
+import { Section } from './Login/styledLogin';
+
 function RegisterPage(props) {
-    return (
-      <section>
-        <h1>Register new account</h1>
-        <form>
-          <label htmlFor='email'>Your email</label>
-          <input type='email' id='email' />
-  
-          <label htmlFor='password'>Your Password</label>
-          <input type='password' id='password' />
-  
-          <label htmlFor='password'>Repeat Password</label>
-          <input type='password' id='password' />
-  
-          <button type='button'>Register</button>
-          <h3>If you already have an account, please Login here</h3>
-        </form>
-      </section>
-    );
-  }
-  export default RegisterPage;
-  
+  return (
+    <Section>
+      <Card>
+        <h1>REGISTER</h1>
+        <Form>
+          <input type='email' id='email' placeholder='Your email' />
+
+          <input type='password' id='password' placeholder='Your password' />
+          <input
+            type='password'
+            id='repPassword'
+            placeholder='Repeat password'
+          />
+
+          <Button>Login</Button>
+          <p>
+            If you already have an account, please <a href='/login'>LOGIN </a>
+          </p>
+        </Form>
+      </Card>
+    </Section>
+  );
+}
+export default RegisterPage;

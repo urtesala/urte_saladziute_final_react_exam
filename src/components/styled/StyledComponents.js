@@ -1,6 +1,11 @@
-
 import styled from 'styled-components';
 
+export const Wraper = styled.div`
+  height: 100vw;
+  width: 100%;
+  font-family: 'Yanone Kaffeesatz', sans-serif;
+  background-color: #ededed;
+`;
 
 export const Container = styled.div`
   max-width: 1200px;
@@ -12,8 +17,12 @@ export const Card = styled.div`
   padding: 1rem;
   box-shadow: 5px 5px 10px rgb(180, 190, 194);
   border: 1px solid rgb(191, 180, 180);
-  border-radius: 5px;
-  background-color: snow;
+  background-color: #444444;
+  color: #ededed;
+  h1 {
+    font-size: 2rem;
+    letter-spacing: 1px;
+  }
 `;
 
 export const Flex = styled.div`
@@ -22,8 +31,46 @@ export const Flex = styled.div`
   justify-content: space-between;
 `;
 
-export const Wraper = styled.div`
-height: 100%;
-width: 100%;
-font-family: 'Yanone Kaffeesatz', sans-serif;
-`
+export const Form = styled.form`
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  p {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+  }
+  a {
+    color: inherit;
+    text-underline-offset: 5px;
+    font-size: 1.5rem;
+    &:hover {
+      color: #da0037;
+    }
+  }
+
+  input {
+    font-size: 16px;
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+    padding: 0.3em 0.8em;
+    margin: 0.4em;
+    border: 1.5px solid #171717;
+    display: block;
+    max-width: 300px;
+    color: #da0037;
+  }
+`;
+
+export const Button = styled.button`
+  background-color: #ededed;
+  color: #444444;
+  font-size: 16px;
+  padding: 0.3em 0.8em;
+  margin: 26px;
+  border: 1.5px solid #171717;
+  cursor: pointer;
+  &:hover {
+    color: #da0037;
+    border: 1.5px solid #da0037;
+  }
+`;

@@ -16,5 +16,8 @@ export const HomeDiv = styled.div`
     color: inherit;
     text-underline-offset: 5px;
     font-size: 1.5rem;
+    &:hover {
+      color: #da0037;
+    }
   }
 `;
