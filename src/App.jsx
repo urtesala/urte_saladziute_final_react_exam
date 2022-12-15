@@ -2,7 +2,7 @@ import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
 import Navigation from './components/Layout/Navigation';
 import { Wraper } from './components/styled/StyledComponents';
-import HomePage from './pages/HomePage';
+import HomePage from './pages/Home/HomePage';
 import LoginPage from './pages/LoginPage';
 import RegisterPage from './pages/RegisterPage';
 
