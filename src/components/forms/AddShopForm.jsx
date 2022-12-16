@@ -1,16 +1,18 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
+import { sendRequest } from '../../helpers';
 import { Button, Card, Form, Section } from '../styled/StyledComponents';
 import InputError from './InputError';
 
 function AddShopForm(props) {
+
   const formik = useFormik({
     initialValues: {
-      shopName: '',
-      shopTown: '',
-      startYear: '',
-      description: '',
-      image: '',
+      shopName: 'rimi',
+      shopTown: 'vilnius',
+      startYear: '2022',
+      description: 'rimi rimi rimi',
+      image: 'https://picsum.photos/id/18/600/400',
     },
     validationSchema: Yup.object().shape({
       shopName: Yup.string().min(4).required('Please enter name of the shop'),
@@ -26,6 +28,8 @@ function AddShopForm(props) {
     }),
     onSubmit: (values) => {
       console.log('values ===', values);
+
+
     },
   });
   return (
@@ -87,7 +91,7 @@ function AddShopForm(props) {
         onBlur={formik.handleBlur}
       />
       <InputError error={formik.errors.image} touch={formik.touched.image} />
-      <Button type='submit'>Login</Button>
+      <Button onClick={handleNewShop}>Add Shop</Button>
       <p>
         If you want to see the list of shops already added go{' '}
         <a href='/shops'>HERE</a>

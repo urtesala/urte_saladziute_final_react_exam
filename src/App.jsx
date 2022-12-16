@@ -9,6 +9,7 @@ import LoginPage from './pages/Login-Register/LoginPage';
 import RegisterPage from './pages/Login-Register/RegisterPage';
 import Shops from './pages/shops/Shops';
 import { useAuthCtx } from './store/AuthContext';
+import PageNotFound from './pages/extraPages/PageNotFound';
 
 function App() {
   const { isUserLoggedIn } = useAuthCtx();
@@ -39,6 +40,10 @@ function App() {
 
         <Route path={'/'} exact>
           <HomePage />
+        </Route>
+
+        <Route path={'*'}>
+          <PageNotFound />
         </Route>
       </Switch>
     </Wraper>
