@@ -2,13 +2,13 @@ import { useFormik } from 'formik';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
+import { sendRequest } from '../../helpers';
 import { useRedirect } from '../../hooks/useRedirect';
 import { useAuthCtx } from '../../store/AuthContext';
 import { Button, Form } from '../styled/StyledComponents';
 import InputError from './InputError';
 
 function RegisterForm(props) {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const ctx = useAuthCtx();
   const history = useHistory();
@@ -40,7 +40,7 @@ function RegisterForm(props) {
         });
         return;
       }
-      console.log('sendResult ===', sendResult);
+      // console.log('sendResult ===', sendResult);
       ctx.login(sendResult);
 
       history.push('/add-shop');
@@ -90,27 +90,11 @@ function RegisterForm(props) {
 
       <Button type='submit'>Login</Button>
       <p>
-        If you already have an account, please <a href='/register'>LOGIN </a>
+        If you already have an account, please <a href='/login'>LOGIN </a>
       </p>
     </Form>
   );
 }
 export default RegisterForm;
 
-async function sendRequest(whatToSend, url) {
-  try {
-    const resp = await fetch(url, {
-      method: 'POST',
-      headers: { 'Content-type': 'application/json' },
-      body: JSON.stringify(whatToSend),
-    });
-    if (!resp.ok) {
-      throw await resp.json();
-    }
-    const result = await resp.json();
-    console.log('result ===', result);
-    return [result, null];
-  } catch (error) {
-    return [null, error];
-  }
-}
+

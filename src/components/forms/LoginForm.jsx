@@ -2,14 +2,14 @@ import { useFormik } from 'formik';
 import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
+import { sendRequest } from '../../helpers';
+import { useAuthCtx } from '../../store/AuthContext';
 import { Button, Form } from '../styled/StyledComponents';
 import InputError from './InputError';
 
 function LoginForm(props) {
+  const ctx = useAuthCtx();
   const history = useHistory();
-
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-
 
   const formik = useFormik({
     initialValues: {
@@ -20,11 +20,25 @@ function LoginForm(props) {
       email: Yup.string().email().required('Please enter your email'),
       password: Yup.string().min(6).required('Please enter your password'),
     }),
-    onSubmit: (values) => {
+    onSubmit: async (values) => {
+      let url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${
+        import.meta.env.VITE_API_KEY
+      }`;
+      const [sendResult, postError] = await sendRequest(values, url);
 
-      console.log('values ===', values, 'mode:', result);}
+      if (postError) {
+        console.warn('postError ===', postError);
+        formik.setErrors({
+          email: postError.error.message,
+        });
+        return;
+      }
+      // console.log('sendResult ===', sendResult);
+      ctx.login(sendResult);
+
+      history.push('/add-shop');
+    },
   });
-
   return (
     <Form onSubmit={formik.handleSubmit}>
       <input
@@ -60,4 +74,3 @@ function LoginForm(props) {
   );
 }
 export default LoginForm;
-
