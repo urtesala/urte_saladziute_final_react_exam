@@ -1,14 +1,23 @@
 import { useFormik } from 'formik';
+import { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
+import { useRedirect } from '../../hooks/useRedirect';
+import { useAuthCtx } from '../../store/AuthContext';
 import { Button, Form } from '../styled/StyledComponents';
 import InputError from './InputError';
 
 function RegisterForm(props) {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const ctx = useAuthCtx();
+  const history = useHistory();
+
   const formik = useFormik({
     initialValues: {
-      email: '',
-      password: '',
-      repeatPassword: '',
+      email: 'james@bond.com',
+      password: '123456',
+      repeatPassword: '123456',
     },
     validationSchema: Yup.object().shape({
       email: Yup.string().email().required('Please enter your email'),
@@ -18,8 +27,23 @@ function RegisterForm(props) {
         .required('Please enter your password')
         .oneOf([Yup.ref('password')], 'Passwords must match'),
     }),
-    onSubmit: (values) => {
-      console.log('values ===', values);
+    onSubmit: async (values) => {
+      let url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${
+        import.meta.env.VITE_API_KEY
+      }`;
+      const [sendResult, postError] = await sendRequest(values, url);
+
+      if (postError) {
+        console.warn('postError ===', postError);
+        formik.setErrors({
+          email: postError.error.message,
+        });
+        return;
+      }
+      console.log('sendResult ===', sendResult);
+      ctx.login(sendResult);
+
+      history.push('/add-shop');
     },
   });
 
@@ -34,7 +58,7 @@ function RegisterForm(props) {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
       />
-      <InputError error={formik.errors.email} touch={formik.touched.password} />
+      <InputError error={formik.errors.email} touch={formik.touched.email} />
 
       <input
         type='password'
@@ -66,9 +90,27 @@ function RegisterForm(props) {
 
       <Button type='submit'>Login</Button>
       <p>
-        If you don't have an account, please <a href='/register'>REGISTER </a>
+        If you already have an account, please <a href='/register'>LOGIN </a>
       </p>
     </Form>
   );
 }
 export default RegisterForm;
+
+async function sendRequest(whatToSend, url) {
+  try {
+    const resp = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-type': 'application/json' },
+      body: JSON.stringify(whatToSend),
+    });
+    if (!resp.ok) {
+      throw await resp.json();
+    }
+    const result = await resp.json();
+    console.log('result ===', result);
+    return [result, null];
+  } catch (error) {
+    return [null, error];
+  }
+}

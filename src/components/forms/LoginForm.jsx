@@ -1,4 +1,5 @@
 import { useFormik } from 'formik';
+import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
 import { Button, Form } from '../styled/StyledComponents';
@@ -6,6 +7,10 @@ import InputError from './InputError';
 
 function LoginForm(props) {
   const history = useHistory();
+
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
+
   const formik = useFormik({
     initialValues: {
       email: '',
@@ -16,8 +21,8 @@ function LoginForm(props) {
       password: Yup.string().min(6).required('Please enter your password'),
     }),
     onSubmit: (values) => {
-      console.log('values ===', values);
-    },
+
+      console.log('values ===', values, 'mode:', result);}
   });
 
   return (
@@ -31,10 +36,7 @@ function LoginForm(props) {
         onChange={formik.handleChange}
         onBlur={formik.handleBlur}
       />
-      <InputError
-        error={formik.errors.email}
-        touch={formik.touched.password}
-      />
+      <InputError error={formik.errors.email} touch={formik.touched.password} />
 
       <input
         type='password'
@@ -58,3 +60,4 @@ function LoginForm(props) {
   );
 }
 export default LoginForm;
+

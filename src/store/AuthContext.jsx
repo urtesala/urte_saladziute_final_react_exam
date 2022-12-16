@@ -12,18 +12,12 @@ AuthContext.displayName = 'Auth-context';
 const tokenName = 'firebaseToken';
 
 function AuthContextProvider(props) {
-  // localStorage yra sinchroninis
   const tokenFromStorage = localStorage.getItem(tokenName);
   const emailFromStorage = localStorage.getItem('email');
   const [token, setToken] = useState(tokenFromStorage);
   const [emailValue, setEmailValue] = useState(emailFromStorage);
   const [uid, setUid] = useState('');
   const isUserLoggedIn = !!token;
-
-  // AuthContextProvider
-  // sukurti state userId
-  // issaugoti userId kai prisiloginam
-  // perduoti i contextValue userId
 
   const login = ({ idToken, email, localId }) => {
     setToken(idToken);
@@ -56,7 +50,7 @@ function AuthContextProvider(props) {
 
 export default AuthContextProvider;
 
-// custon useAuthCtx hook 2 lvl burtas
+//burtai magija oho 
 export function useAuthCtx() {
   return useContext(AuthContext);
 }
