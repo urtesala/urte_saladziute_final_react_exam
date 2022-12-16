@@ -5,7 +5,6 @@ import { Button, Card, Form, Section } from '../styled/StyledComponents';
 import InputError from './InputError';
 
 function AddShopForm(props) {
-
   const formik = useFormik({
     initialValues: {
       shopName: 'rimi',
@@ -28,8 +27,7 @@ function AddShopForm(props) {
     }),
     onSubmit: (values) => {
       console.log('values ===', values);
-
-
+      props.onNewShop(values);
     },
   });
   return (
@@ -91,7 +89,7 @@ function AddShopForm(props) {
         onBlur={formik.handleBlur}
       />
       <InputError error={formik.errors.image} touch={formik.touched.image} />
-      <Button onClick={handleNewShop}>Add Shop</Button>
+      <Button type='submit'>Add Shop</Button>
       <p>
         If you want to see the list of shops already added go{' '}
         <a href='/shops'>HERE</a>
