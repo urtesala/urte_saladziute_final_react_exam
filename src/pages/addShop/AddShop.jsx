@@ -4,29 +4,28 @@ import { fireObjToArr, getData, sendRequest } from '../../helpers';
 import useFetch from '../../hooks/useFetch';
 import { useAuthCtx } from '../../store/AuthContext';
 
+const dummyPost = {
+  shopName: 'iki',
+  shopTown: 'vilnius',
+  startYear: '2022',
+  description: 'iki iki iki',
+  image: 'https://picsum.photos/id/18/600/400',
+};
+
 function AddShop(props) {
-  const { token } = useAuthCtx();
-  // pakeisti url. prideti parametrus kad maytumetik neistrintus postus
-  const url = `${
-    import.meta.env.VITE_REAL_DB_URL
-  }/shops/listOfShops.json`;
+  const { uid, token } = useAuthCtx();
+  const handleNewShop = async (formValues) => {
+    console.log('formValues ===', formValues);
 
-  const [dataFromFireB, setDataFromFireB] = useFetch(url, {});
+    const url = `${import.meta.env.VITE_REAL_DATABASE}/shops/shopList.json`;
+    console.log('url ===', url);
 
-  const dataArr = fireObjToArr(dataFromFireB);
+    const [ats, err] = await sendRequest(formValues, url);
 
-  console.log('dataArr ===', dataArr);
-  // console.log('dataFromFireB ===', dataFromFireB);
-  // console.log(JSON.stringify(dataFromFireB, null, 2));
-
-
-    // neturim klaidos
-
-    setDataFromFireB();
-
-
-  // sukurti ar pernaudoti SinglePost.jsx
-  // su juo atvaizuoti postus
+    console.log('ats ===', ats);
+    console.log('err ===', err);
+    // redirect to /posts
+  };
 
   return (
     <Section>

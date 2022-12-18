@@ -15,3 +15,7 @@ padding: 1rem;
   background-color: #444444;
   color: #ededed;
 `
+
+export const ShopName = styled.h2`
+font-size: 3rem;
+`

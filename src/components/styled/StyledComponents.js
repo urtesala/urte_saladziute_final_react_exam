@@ -93,7 +93,7 @@ export const Section = styled.section`
   margin-top: 3rem;
   width: auto;
   height: 350px;
-  h1{
-    font-size: 3rem;
+  h1 {
+    font-size: 5rem;
   }
 `;

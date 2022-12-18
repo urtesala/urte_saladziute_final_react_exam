@@ -16,7 +16,6 @@ function App() {
   return (
     <Wraper>
       <Navigation />
-
       <Switch>
         <ProtectedRoute path={'/add-shop'}>
           <AddShop />
