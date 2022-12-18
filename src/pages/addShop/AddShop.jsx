@@ -1,8 +1,7 @@
-import { Redirect, useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import AddShopForm from '../../components/forms/AddShopForm';
 import { Card, Section } from '../../components/styled/StyledComponents';
-import { fireObjToArr, getData, sendRequest } from '../../helpers';
-import useFetch from '../../hooks/useFetch';
+import { sendRequest } from '../../helpers';
 import { useAuthCtx } from '../../store/AuthContext';
 
 function AddShop(props) {

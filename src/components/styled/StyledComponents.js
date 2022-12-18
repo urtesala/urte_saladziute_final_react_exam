@@ -23,6 +23,7 @@ export const Card = styled.div`
   h1 {
     font-size: 2rem;
     letter-spacing: 1px;
+    margin-bottom: 0;
   }
 `;
 
@@ -49,13 +50,12 @@ export const Form = styled.form`
       color: #da0037;
     }
   }
-
   input,
   textarea {
     font-size: 16px;
     font-family: 'Yanone Kaffeesatz', sans-serif;
     padding: 0.3em 0.8em;
-    margin: 0.4em;
+    margin: 1rem;
     border: 1.5px solid #171717;
     display: block;
     width: 180px;
@@ -80,7 +80,7 @@ export const Button = styled.button`
 
 export const ErrorMessage = styled.p`
   color: #da0037;
-  margin: 0;
+  margin:0;
   letter-spacing: 3px;
   text-transform: uppercase;
   font-weight: 300;

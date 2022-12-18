@@ -17,14 +17,14 @@ export const LiEl = styled.li`
   letter-spacing: 2px;
 
   img {
-    width: 500px;
-    height: 400px;
+    width: 300px;
+    height: 200px;
   }
   h2 {
     font-size: 4rem;
   }
   h3 {
-    font-size: 3rem;
+    font-size: 2.5rem;
   }
   p {
     font-size: 1.5rem;
