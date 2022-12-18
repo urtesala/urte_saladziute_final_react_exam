@@ -1,7 +1,6 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { sendRequest } from '../../helpers';
-import { Button, Card, Form, Section } from '../styled/StyledComponents';
+import { Button, Form} from '../styled/StyledComponents';
 import InputError from './InputError';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -9,11 +8,11 @@ import 'react-toastify/dist/ReactToastify.css';
 function AddShopForm(props) {
   const formik = useFormik({
     initialValues: {
-      shopName: 'rimi',
-      shopTown: 'vilnius',
-      startYear: '2022',
-      description: 'rimi rimi rimi',
-      image: 'https://picsum.photos/id/18/600/400',
+      shopName: '',
+      shopTown: '',
+      startYear: '',
+      description: '',
+      image: '',
     },
     validationSchema: Yup.object().shape({
       shopName: Yup.string().min(4).required('Please enter name of the shop'),
@@ -29,7 +28,7 @@ function AddShopForm(props) {
     }),
     onSubmit: (values) => {
       console.log('values ===', values);
-      toast('Shop added to the list', {
+      toast('Shop added to the list!', {
         position: 'top-center',
         autoClose: 2000,
         hideProgressBar: false,

@@ -1,8 +1,7 @@
-import { useEffect, useState } from 'react';
 import { Section, StyledLink } from '../../components/styled/StyledComponents';
 import { fireObjToArr } from '../../helpers';
 import useFetch from '../../hooks/useFetch';
-import { Grid, LiEl, ShopName } from './styledShops';
+import { Grid, LiEl } from './styledShops';
 
 function Shops(props) {
   const url = `${import.meta.env.VITE_REAL_DATABASE}/shops/shopList.json`;
@@ -24,9 +23,9 @@ function Shops(props) {
         <Grid>
           {dataArr.map((pObj) => (
             <LiEl key={pObj.id}>
-              <ShopName>{pObj.shopName}</ShopName>
+              <h2>{pObj.shopName}</h2>
               <img src={pObj.image} alt={pObj.shopName} />
-              <h3>Shop is located in {pObj.town}</h3>
+              <h3>Shop is located in {pObj.shopTown}</h3>
               <h3>Shop opened in {pObj.startYear}</h3>
               <p>{pObj.description}</p>
             </LiEl>
