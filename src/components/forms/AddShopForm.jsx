@@ -3,6 +3,8 @@ import * as Yup from 'yup';
 import { sendRequest } from '../../helpers';
 import { Button, Card, Form, Section } from '../styled/StyledComponents';
 import InputError from './InputError';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 function AddShopForm(props) {
   const formik = useFormik({
@@ -27,74 +29,89 @@ function AddShopForm(props) {
     }),
     onSubmit: (values) => {
       console.log('values ===', values);
-      props.onNewShop(values);
+      toast('Shop added to the list', {
+        position: 'top-center',
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+        theme: 'dark',
+        onClose: () => {
+          props.onNewShop(values);
+        },
+      });
     },
   });
   return (
-    <Form onSubmit={formik.handleSubmit}>
-      <input
-        type='text'
-        id='shopName'
-        placeholder='Shop name'
-        value={formik.values.shopName}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-      />
-      <InputError
-        error={formik.errors.shopName}
-        touch={formik.touched.shopName}
-      />
-      <input
-        type='text'
-        id='shopTown'
-        placeholder='Shop town'
-        value={formik.values.shopTown}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-      />
-      <InputError
-        error={formik.errors.shopTown}
-        touch={formik.touched.shopTown}
-      />
-      <input
-        type='text'
-        id='startYear'
-        placeholder='Start year'
-        value={formik.values.startYear}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-      />
-      <InputError
-        error={formik.errors.startYear}
-        touch={formik.touched.startYear}
-      />
-      <textarea
-        type='text'
-        id='description'
-        placeholder='Description'
-        value={formik.values.description}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-      ></textarea>
-      <InputError
-        error={formik.errors.description}
-        touch={formik.touched.description}
-      />
-      <input
-        type='text'
-        id='image'
-        placeholder='Image URL'
-        value={formik.values.image}
-        onChange={formik.handleChange}
-        onBlur={formik.handleBlur}
-      />
-      <InputError error={formik.errors.image} touch={formik.touched.image} />
-      <Button type='submit'>Add Shop</Button>
-      <p>
-        If you want to see the list of shops already added go{' '}
-        <a href='/shops'>HERE</a>
-      </p>
-    </Form>
+    <>
+      <Form onSubmit={formik.handleSubmit}>
+        <input
+          type='text'
+          id='shopName'
+          placeholder='Shop name'
+          value={formik.values.shopName}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+        />
+        <InputError
+          error={formik.errors.shopName}
+          touch={formik.touched.shopName}
+        />
+        <input
+          type='text'
+          id='shopTown'
+          placeholder='Shop town'
+          value={formik.values.shopTown}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+        />
+        <InputError
+          error={formik.errors.shopTown}
+          touch={formik.touched.shopTown}
+        />
+        <input
+          type='text'
+          id='startYear'
+          placeholder='Start year'
+          value={formik.values.startYear}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+        />
+        <InputError
+          error={formik.errors.startYear}
+          touch={formik.touched.startYear}
+        />
+        <textarea
+          type='text'
+          id='description'
+          placeholder='Description'
+          value={formik.values.description}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+        ></textarea>
+        <InputError
+          error={formik.errors.description}
+          touch={formik.touched.description}
+        />
+        <input
+          type='text'
+          id='image'
+          placeholder='Image URL'
+          value={formik.values.image}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+        />
+        <InputError error={formik.errors.image} touch={formik.touched.image} />
+        <Button type='submit'>Add Shop</Button>
+        <p>
+          If you want to see the list of shops already added go{' '}
+          <a href='/shops'>HERE</a>
+        </p>
+      </Form>
+      <ToastContainer />
+    </>
   );
 }
 export default AddShopForm;
