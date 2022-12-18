@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Wraper = styled.div`
@@ -95,5 +96,14 @@ export const Section = styled.section`
   height: 350px;
   h1 {
     font-size: 5rem;
+  }
+`;
+
+export const StyledLink = styled(Link)`
+  color: inherit;
+  text-underline-offset: 5px;
+  font-size: 1.5rem;
+  &:hover {
+    color: #da0037;
   }
 `;

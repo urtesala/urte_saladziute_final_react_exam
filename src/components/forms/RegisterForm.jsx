@@ -5,7 +5,7 @@ import * as Yup from 'yup';
 import { sendRequest } from '../../helpers';
 import { useRedirect } from '../../hooks/useRedirect';
 import { useAuthCtx } from '../../store/AuthContext';
-import { Button, Form } from '../styled/StyledComponents';
+import { Button, Form, StyledLink } from '../styled/StyledComponents';
 import InputError from './InputError';
 
 function RegisterForm(props) {
@@ -90,7 +90,7 @@ function RegisterForm(props) {
 
       <Button type='submit'>Login</Button>
       <p>
-        If you already have an account, please <a href='/login'>LOGIN </a>
+        If you already have an account, please <StyledLink path={'/login'}>LOGIN</StyledLink>
       </p>
     </Form>
   );

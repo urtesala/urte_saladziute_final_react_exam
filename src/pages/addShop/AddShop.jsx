@@ -1,3 +1,4 @@
+import { Redirect, useHistory } from 'react-router-dom';
 import AddShopForm from '../../components/forms/AddShopForm';
 import { Card, Section } from '../../components/styled/StyledComponents';
 import { fireObjToArr, getData, sendRequest } from '../../helpers';
@@ -13,6 +14,7 @@ const dummyPost = {
 };
 
 function AddShop(props) {
+  const history = useHistory();
   const { uid, token } = useAuthCtx();
   const handleNewShop = async (formValues) => {
     console.log('formValues ===', formValues);
@@ -25,6 +27,7 @@ function AddShop(props) {
     console.log('ats ===', ats);
     console.log('err ===', err);
     // redirect to /posts
+    history.push('/shops');
   };
 
   return (

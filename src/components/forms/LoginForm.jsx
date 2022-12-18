@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
 import { sendRequest } from '../../helpers';
 import { useAuthCtx } from '../../store/AuthContext';
-import { Button, Form } from '../styled/StyledComponents';
+import { Button, Form, StyledLink } from '../styled/StyledComponents';
 import InputError from './InputError';
 
 function LoginForm(props) {
@@ -68,7 +68,8 @@ function LoginForm(props) {
 
       <Button type='submit'>Login</Button>
       <p>
-        If you don't have an account, please <a href='/register'>REGISTER </a>
+        If you don't have an account, please{' '}
+        <StyledLink path={'/register'}>REGISTER</StyledLink>
       </p>
     </Form>
   );
