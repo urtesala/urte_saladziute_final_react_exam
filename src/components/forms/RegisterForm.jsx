@@ -1,9 +1,7 @@
 import { useFormik } from 'formik';
-import { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import * as Yup from 'yup';
 import { sendRequest } from '../../helpers';
-import { useRedirect } from '../../hooks/useRedirect';
 import { useAuthCtx } from '../../store/AuthContext';
 import { Button, Form, StyledLink } from '../styled/StyledComponents';
 import InputError from './InputError';
@@ -39,7 +37,7 @@ function RegisterForm(props) {
         });
         return;
       }
-      // console.log('sendResult ===', sendResult);
+
       ctx.login(sendResult);
 
       history.push('/');

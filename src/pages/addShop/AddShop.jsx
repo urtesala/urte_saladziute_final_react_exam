@@ -2,17 +2,15 @@ import { useHistory } from 'react-router-dom';
 import AddShopForm from '../../components/forms/AddShopForm';
 import { Card, Section } from '../../components/styled/StyledComponents';
 import { sendRequest } from '../../helpers';
-import { useAuthCtx } from '../../store/AuthContext';
 
 function AddShop(props) {
   const history = useHistory();
-  const { uid, token } = useAuthCtx();
   const handleNewShop = async (formValues) => {
     //console.log('formValues ===', formValues);
 
     const url = `${import.meta.env.VITE_REAL_DATABASE}/shops/shopList.json`;
     //console.log('url ===', url);
-    const [ats, err] = await sendRequest(formValues, url);
+    await sendRequest(formValues, url);
     history.push('/shops');
   };
 

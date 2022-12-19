@@ -8,7 +8,6 @@ import HomePage from './pages/Home/HomePage';
 import LoginPage from './pages/Login-Register/LoginPage';
 import RegisterPage from './pages/Login-Register/RegisterPage';
 import Shops from './pages/shops/Shops';
-import { useAuthCtx } from './store/AuthContext';
 import PageNotFound from './pages/extraPages/PageNotFound';
 
 function App() {
@@ -16,13 +15,9 @@ function App() {
     <Wraper>
       <Navigation />
       <Switch>
-        <ProtectedRoute path={'/add-shop'}>
-          <AddShop />
-        </ProtectedRoute>
-
-        <ProtectedRoute path={'/shops'}>
-          <Shops />
-        </ProtectedRoute>
+        <Route path={'/'} exact>
+          <HomePage />
+        </Route>
 
         <Route path={'/login'}>
           <LoginPage />
@@ -36,13 +31,18 @@ function App() {
           <Redirect to={'/'} />
         </Route>
 
-        <Route path={'/'} exact>
-          <HomePage />
-        </Route>
+        <ProtectedRoute path={'/shops'}>
+          <Shops />
+        </ProtectedRoute>
+
+        <ProtectedRoute path={'/add-shop'}>
+          <AddShop />
+        </ProtectedRoute>
 
         <Route path={'*'}>
           <PageNotFound />
         </Route>
+        
       </Switch>
     </Wraper>
   );

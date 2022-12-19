@@ -1,4 +1,4 @@
-import { Section, StyledLink } from '../../components/styled/StyledComponents';
+import { StyledLink } from '../../components/styled/StyledComponents';
 import { fireObjToArr } from '../../helpers';
 import useFetch from '../../hooks/useFetch';
 import { Grid, LiEl, StyledShop } from './styledShops';
@@ -16,7 +16,7 @@ function Shops(props) {
 
       {dataArr.length === 0 ? (
         <h2>
-          It seems there are no shops yet... to add one please go to{' '}
+          It seems there are no shops yet... to add one please go to
           <StyledLink to={'/add-shop'}>ADD SHOP</StyledLink>
         </h2>
       ) : (

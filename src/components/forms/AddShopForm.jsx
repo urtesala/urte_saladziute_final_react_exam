@@ -1,6 +1,6 @@
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { Button, Form} from '../styled/StyledComponents';
+import { Button, Form, StyledLink } from '../styled/StyledComponents';
 import InputError from './InputError';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -18,13 +18,13 @@ function AddShopForm(props) {
       shopName: Yup.string().min(4).required('Please enter name of the shop'),
       shopTown: Yup.string()
         .min(4)
-        .required('Please enter town where shop is located'),
+        .required('Please enter where shop is located'),
       startYear: Yup.number()
         .min(1970)
         .max(2022)
         .required('Please enter which year shop opened'),
       description: Yup.string().min(6).required('Please enter description'),
-      image: Yup.string().min(5).required('Please add photo of the shop'),
+      image: Yup.string().min(5).required('Please add photo URL of the shop'),
     }),
     onSubmit: (values) => {
       console.log('values ===', values);
@@ -36,7 +36,7 @@ function AddShopForm(props) {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: 'dark',
+        theme: 'light',
         onClose: () => {
           props.onNewShop(values);
         },
@@ -106,7 +106,7 @@ function AddShopForm(props) {
         <Button type='submit'>Add Shop</Button>
         <p>
           If you want to see the list of shops already added go{' '}
-          <a href='/shops'>HERE</a>
+          <StyledLink to={'/shops'}>HERE</StyledLink>
         </p>
       </Form>
       <ToastContainer />
