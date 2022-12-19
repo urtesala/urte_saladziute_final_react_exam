@@ -26,7 +26,6 @@ function LoginForm(props) {
       const [sendResult, postError] = await sendRequest(values, url);
 
       if (postError) {
-        console.warn('postError ===', postError);
         formik.setErrors({
           email: postError.error.message,
         });

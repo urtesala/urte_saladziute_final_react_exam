@@ -1,4 +1,3 @@
-import { Link, NavLink } from 'react-router-dom';
 import { useAuthCtx } from '../../store/AuthContext';
 import { Header, Nav, StyledNavLink } from './styledNavigation';
 
