@@ -1,8 +1,16 @@
+import { Section, StyledLink } from '../../components/styled/StyledComponents';
+
 function unauthorized(props) {
   return (
-    <div>
+    <>
+      <Section>
         <h1>401 ACCESS ALLOWED ONLY FOR REGISTRED USERS</h1>
-    </div>
-  )
+        <h2>
+          If you would like to register, please go{' '}
+          <StyledLink to={'/register'}>HERE</StyledLink>
+        </h2>
+      </Section>
+    </>
+  );
 }
-export default unauthorized
+export default unauthorized;

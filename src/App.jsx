@@ -42,7 +42,7 @@ function App() {
         <Route path={'*'}>
           <PageNotFound />
         </Route>
-        
+
       </Switch>
     </Wraper>
   );
