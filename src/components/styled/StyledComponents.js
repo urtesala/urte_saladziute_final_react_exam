@@ -16,12 +16,6 @@ export const Wraper = styled.div`
   background-size: cover;
 `;
 
-export const Container = styled.div`
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-`;
-
 export const Card = styled.div`
   padding: 1rem;
   max-width: 630px;
@@ -36,12 +30,6 @@ export const Card = styled.div`
     letter-spacing: 1px;
     margin-bottom: 0;
   }
-`;
-
-export const Flex = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 `;
 
 export const Form = styled.form`
@@ -90,8 +78,8 @@ export const Button = styled.button`
   border-radius: 20px;
   cursor: pointer;
   &:hover {
-    color: white;
-    border: 1.5px solid #da0037;
+    color: black;
+    border: 1.5px solid;
   }
 `;
 

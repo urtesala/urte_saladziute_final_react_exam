@@ -14,7 +14,7 @@ export const Grid = styled.ul`
 export const LiEl = styled.li`
   padding: 1rem;
   box-shadow: 5px 5px 10px rgb(180, 190, 194);
-  border: 1px solid rgb(191, 180, 180);
+  border: none;
   color: #000000;
   letter-spacing: 2px;
   width: 20rem;
