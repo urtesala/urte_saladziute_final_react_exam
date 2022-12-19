@@ -10,44 +10,86 @@ function Navigation(props) {
       {/* <Link to={'/'}>Logo</Link> */}
 
       <Nav>
-        {isUserLoggedIn && (
-          <li>
-            <StyledNavLink to={'/'} exact>
-              Home
-            </StyledNavLink>
-          </li>
-        )}
+        <li>
+          <StyledNavLink
+            activeStyle={{
+              color: 'white',
+              textDecoration: 'underline',
+            }}
+            to={'/'}
+            exact
+          >
+            Home
+          </StyledNavLink>
+        </li>
+
         {!isUserLoggedIn && (
           <li>
-            <StyledNavLink to={'/register'} exact>
+            <StyledNavLink
+              activeStyle={{
+                color: 'white',
+                textDecoration: 'underline',
+              }}
+              to={'/register'}
+              exact
+            >
               Register
             </StyledNavLink>
           </li>
         )}
         {!isUserLoggedIn && (
           <li>
-            <StyledNavLink to={'/login'} exact>
+            <StyledNavLink
+              activeStyle={{
+                color: 'white',
+                textDecoration: 'underline',
+              }}
+              to={'/login'}
+              exact
+            >
               Login
             </StyledNavLink>
           </li>
         )}
         {isUserLoggedIn && (
           <li>
-            <StyledNavLink to={'/add-shop'} exact>
+            <StyledNavLink
+              activeStyle={{
+                color: 'white',
+                textDecoration: 'underline',
+              }}
+              to={'/add-shop'}
+              exact
+            >
               Add Shop
             </StyledNavLink>
           </li>
         )}
         {isUserLoggedIn && (
           <li>
-            <StyledNavLink to={'/shops'} exact>
+            <StyledNavLink
+              activeStyle={{
+                color: 'white',
+                textDecoration: 'underline',
+              }}
+              to={'/shops'}
+              exact
+            >
               Shops
             </StyledNavLink>
           </li>
         )}
         {isUserLoggedIn && (
           <li>
-            <StyledNavLink onClick={logout} to={'/'} exact>
+            <StyledNavLink
+              activeStyle={{
+                color: 'white',
+                textDecoration: 'underline',
+              }}
+              onClick={logout}
+              to={'/home'}
+              exact
+            >
               Logout
             </StyledNavLink>
           </li>

@@ -12,13 +12,26 @@ export const LiEl = styled.li`
   padding: 1rem;
   box-shadow: 5px 5px 10px rgb(180, 190, 194);
   border: 1px solid rgb(191, 180, 180);
-  background-color: #444444;
-  color: #ededed;
+  color: #000000;
   letter-spacing: 2px;
+
+  background-color: #ededed;
+  border-radius: 20px;
+  background-color: #4444;
+  opacity: 0.95;
+  h1 {
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    margin-bottom: 0;
+  }
+  &:hover{
+    opacity: 1;
+  }
 
   img {
     width: 300px;
     height: 200px;
+    border-radius: 25px;
   }
   h2 {
     font-size: 4rem;
@@ -36,13 +49,18 @@ export const StyledShop = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 3rem;
+  margin-top: 0;
   width: auto;
   height: auto;
   h1 {
     font-size: 5rem;
   }
-  background-image: url(https://img.freepik.com/free-vector/simple-rainbow-gradient-vector-template_1159-31539.jpg?w=900&t=st=1671440391~exp=1671440991~hmac=143cdd9cb80a717a0481f3b6724627074faabe99f53ff7a4edf4b9c945c43c64);
-  background-position:center ;
+  background-color: rgb(26, 194, 221);
+  background: linear-gradient(
+    165deg,
+    rgba(26, 194, 221, 1) 0%,
+    rgba(236, 194, 194, 1) 49%,
+    rgba(249, 168, 231, 1) 100%
+  );
   background-size:cover
 `

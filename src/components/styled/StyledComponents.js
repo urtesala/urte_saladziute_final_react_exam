@@ -1,14 +1,20 @@
+
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Wraper = styled.div`
-  width: 100%;
-  min-height: 60vw;
+  width: auto;
+  min-height: 1000px;
   font-family: 'Yanone Kaffeesatz', sans-serif;
-  background-image: url(https://img.freepik.com/free-vector/simple-rainbow-gradient-vector-template_1159-31539.jpg?w=900&t=st=1671440391~exp=1671440991~hmac=143cdd9cb80a717a0481f3b6724627074faabe99f53ff7a4edf4b9c945c43c64);
+  background-color: rgb(26, 194, 221);
+  background: linear-gradient(
+    165deg,
+    rgba(26, 194, 221, 1) 0%,
+    rgba(236, 194, 194, 1) 49%,
+    rgba(249, 168, 231, 1) 100%
+  );
   background-position: center;
   background-size: cover;
-  //background-color: #ededed;
 `;
 
 export const Container = styled.div`
@@ -20,11 +26,13 @@ export const Container = styled.div`
 export const Card = styled.div`
   padding: 1rem;
   box-shadow: 5px 5px 10px rgb(180, 190, 194);
-  border: 1px solid rgb(191, 180, 180);
-  background-color: #444444;
-  color: #ededed;
+  border: none;
+  background-color: #ededed;
+  border-radius: 20px;
+  background-color: #4444;
+  opacity: 0.95;
   h1 {
-    font-size: 2rem;
+    font-size: 1rem;
     letter-spacing: 1px;
     margin-bottom: 0;
   }
@@ -50,16 +58,18 @@ export const Form = styled.form`
     text-underline-offset: 5px;
     font-size: 1.5rem;
     &:hover {
-      color: #da0037;
+      color: white;
     }
   }
   input,
   textarea {
-    font-size: 16px;
+    font-size: 1.5rem;
     font-family: 'Yanone Kaffeesatz', sans-serif;
     padding: 0.3em 0.8em;
     margin: 1rem;
-    border: 1.5px solid #171717;
+    border: 1.5px solid white;
+    border-radius: 25px;
+    padding: 1rem;
     display: block;
     width: 180px;
     color: #da0037;
@@ -68,15 +78,19 @@ export const Form = styled.form`
 `;
 
 export const Button = styled.button`
-  background-color: #ededed;
-  color: #444444;
-  font-size: 16px;
+  background-color: white;
+  color: #000000;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
   padding: 0.3em 0.8em;
   margin: 26px;
-  border: 1.5px solid #171717;
+  padding: 1rem;
+  border: 1.5px solid white;
+  border-radius: 20px;
   cursor: pointer;
   &:hover {
-    color: #da0037;
+    color: white;
     border: 1.5px solid #da0037;
   }
 `;
@@ -86,7 +100,7 @@ export const ErrorMessage = styled.p`
   margin: 0;
   letter-spacing: 3px;
   text-transform: uppercase;
-  font-weight: 300;
+  font-weight: 700;
 `;
 
 export const Section = styled.section`
@@ -98,7 +112,7 @@ export const Section = styled.section`
   width: auto;
   height: 350px;
   h1 {
-    font-size: 5rem;
+    font-size: 3.5rem;
   }
 `;
 
@@ -107,6 +121,6 @@ export const StyledLink = styled(Link)`
   text-underline-offset: 5px;
   font-size: 1.5rem;
   &:hover {
-    color: #da0037;
+    color: white;
   }
 `;
