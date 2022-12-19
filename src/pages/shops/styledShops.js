@@ -2,10 +2,13 @@ import styled from 'styled-components';
 
 export const Grid = styled.ul`
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   gap: 1rem;
   list-style: none;
+  @media screen and (max-width: 760px){
+
+  }
 `;
 
 export const LiEl = styled.li`
@@ -14,7 +17,7 @@ export const LiEl = styled.li`
   border: 1px solid rgb(191, 180, 180);
   color: #000000;
   letter-spacing: 2px;
-
+  width: 20rem;
   background-color: #ededed;
   border-radius: 20px;
   background-color: #4444;
@@ -24,7 +27,7 @@ export const LiEl = styled.li`
     letter-spacing: 1px;
     margin-bottom: 0;
   }
-  &:hover{
+  &:hover {
     opacity: 1;
   }
 
@@ -62,5 +65,5 @@ export const StyledShop = styled.section`
     rgba(236, 194, 194, 1) 49%,
     rgba(249, 168, 231, 1) 100%
   );
-  background-size:cover
-`
+  background-size: cover;
+`;

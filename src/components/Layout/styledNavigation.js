@@ -6,7 +6,7 @@ export const Header = styled.header`
   width: 100%;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-between;
   background-color: #4444;
   opacity: 0.95;
   border-bottom-left-radius: 25px;
@@ -33,3 +33,10 @@ export const StyledNavLink = styled(NavLink)`
     color: white;
   }
 `;
+
+export const Logo = styled(Link)`
+font-size: 3rem;
+text-decoration: none;
+color: white;
+padding-left: 4rem;
+`

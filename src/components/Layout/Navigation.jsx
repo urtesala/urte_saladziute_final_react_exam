@@ -1,12 +1,12 @@
 import { useAuthCtx } from '../../store/AuthContext';
-import { Header, Nav, StyledNavLink } from './styledNavigation';
+import { Header, Logo, Nav, StyledNavLink } from './styledNavigation';
 
 function Navigation(props) {
   const { isUserLoggedIn, logout } = useAuthCtx();
 
   return (
     <Header>
-      {/* <Link to={'/'}>Logo</Link> */}
+      <Logo to={'/'}>LOGO</Logo>
 
       <Nav>
         <li>

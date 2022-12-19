@@ -1,4 +1,3 @@
-
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -25,6 +24,7 @@ export const Container = styled.div`
 
 export const Card = styled.div`
   padding: 1rem;
+  max-width: 630px;
   box-shadow: 5px 5px 10px rgb(180, 190, 194);
   border: none;
   background-color: #ededed;
@@ -74,7 +74,6 @@ export const Form = styled.form`
     width: 180px;
     color: black;
     resize: vertical;
-
   }
 `;
 
