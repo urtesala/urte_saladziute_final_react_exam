@@ -72,8 +72,9 @@ export const Form = styled.form`
     padding: 1rem;
     display: block;
     width: 180px;
-    color: #da0037;
+    color: black;
     resize: vertical;
+
   }
 `;
 

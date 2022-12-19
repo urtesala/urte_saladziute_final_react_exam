@@ -9,15 +9,14 @@ import { Button, Form, StyledLink } from '../styled/StyledComponents';
 import InputError from './InputError';
 
 function RegisterForm(props) {
-
   const ctx = useAuthCtx();
   const history = useHistory();
 
   const formik = useFormik({
     initialValues: {
-      email: 'james@bond.com',
-      password: '123456',
-      repeatPassword: '123456',
+      email: '',
+      password: '',
+      repeatPassword: '',
     },
     validationSchema: Yup.object().shape({
       email: Yup.string().email().required('Please enter your email'),
@@ -43,7 +42,7 @@ function RegisterForm(props) {
       // console.log('sendResult ===', sendResult);
       ctx.login(sendResult);
 
-      history.push('/add-shop');
+      history.push('/');
     },
   });
 
@@ -90,11 +89,10 @@ function RegisterForm(props) {
 
       <Button type='submit'>Login</Button>
       <p>
-        If you already have an account, please <StyledLink path={'/login'}>LOGIN</StyledLink>
+        If you already have an account, please{' '}
+        <StyledLink path={'/login'}>LOGIN</StyledLink>
       </p>
     </Form>
   );
 }
 export default RegisterForm;
-
-
