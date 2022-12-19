@@ -35,3 +35,4 @@ export const getData = async (from) => {
     return [null, error];
   }
 };
+

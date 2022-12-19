@@ -10,7 +10,7 @@ function Navigation(props) {
       {/* <Link to={'/'}>Logo</Link> */}
 
       <Nav>
-        {!isUserLoggedIn && (
+        {isUserLoggedIn && (
           <li>
             <StyledNavLink to={'/'} exact>
               Home

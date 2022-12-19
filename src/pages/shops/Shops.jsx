@@ -1,7 +1,7 @@
 import { Section, StyledLink } from '../../components/styled/StyledComponents';
 import { fireObjToArr } from '../../helpers';
 import useFetch from '../../hooks/useFetch';
-import { Grid, LiEl } from './styledShops';
+import { Grid, LiEl, StyledShop } from './styledShops';
 
 function Shops(props) {
   const url = `${import.meta.env.VITE_REAL_DATABASE}/shops/shopList.json`;
@@ -11,7 +11,7 @@ function Shops(props) {
   const dataArr = fireObjToArr(dataFromFireB);
 
   return (
-    <Section>
+    <StyledShop>
       <h1>List of shops</h1>
 
       {dataArr.length === 0 ? (
@@ -32,7 +32,7 @@ function Shops(props) {
           ))}
         </Grid>
       )}
-    </Section>
+    </StyledShop>
   );
 }
 export default Shops;

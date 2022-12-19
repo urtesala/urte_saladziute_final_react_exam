@@ -36,7 +36,7 @@ function LoginForm(props) {
       // console.log('sendResult ===', sendResult);
       ctx.login(sendResult);
 
-      history.push('/add-shop');
+      history.push('/');
     },
   });
   return (

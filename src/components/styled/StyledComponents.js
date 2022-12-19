@@ -2,10 +2,13 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const Wraper = styled.div`
-  height: 100vw;
   width: 100%;
+  min-height: 60vw;
   font-family: 'Yanone Kaffeesatz', sans-serif;
-  background-color: #ededed;
+  background-image: url(https://img.freepik.com/free-vector/simple-rainbow-gradient-vector-template_1159-31539.jpg?w=900&t=st=1671440391~exp=1671440991~hmac=143cdd9cb80a717a0481f3b6724627074faabe99f53ff7a4edf4b9c945c43c64);
+  background-position: center;
+  background-size: cover;
+  //background-color: #ededed;
 `;
 
 export const Container = styled.div`
@@ -80,7 +83,7 @@ export const Button = styled.button`
 
 export const ErrorMessage = styled.p`
   color: #da0037;
-  margin:0;
+  margin: 0;
   letter-spacing: 3px;
   text-transform: uppercase;
   font-weight: 300;

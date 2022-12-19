@@ -12,7 +12,6 @@ import { useAuthCtx } from './store/AuthContext';
 import PageNotFound from './pages/extraPages/PageNotFound';
 
 function App() {
-  const { isUserLoggedIn } = useAuthCtx();
   return (
     <Wraper>
       <Navigation />
